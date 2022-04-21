@@ -1,0 +1,76 @@
+<mxfile host="65bd71144e">
+    <diagram id="oyBZ4-f--x6seWYYMWSG" name="Страница 1">
+        <mxGraphModel dx="1298" dy="729" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="10" value="E_Shop" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="30" width="300" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="- seller_accounts: map&lt;string, SellerAccount&gt;&#10;- customer_accounts: map&lt;string, CustomerAccount&gt; &#10;- name_product :  map&lt;string, Product *&gt;&#10;- id_product: map&lt;int, Product *&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="10" vertex="1">
+                    <mxGeometry y="26" width="300" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="10" vertex="1">
+                    <mxGeometry y="100" width="300" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="-login_seller()&#10;-login_customer()&#10;-create_seller_account()&#10;-create_customer_account()&#10;-print_products()&#10;+enter_menu()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="10" vertex="1">
+                    <mxGeometry y="108" width="300" height="92" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="SellerAccount" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="414" width="510" height="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="-password; string&#10;-name; string&#10;-email; string&#10;-phone; string&#10;-products: map&lt;int, Product&gt;&#10;-e_shop: E_Shop *" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="27" vertex="1">
+                    <mxGeometry y="26" width="510" height="94" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="27" vertex="1">
+                    <mxGeometry y="120" width="510" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="-enter_menu()&#10;-change_password()&#10;-add_product()&#10;-remove_product()&#10;-update_product()&#10;-update_product(product: Product *)&#10;-view_your_products()&#10;-view_all_products()&#10;+SellerAccount() = default;&#10;+SellerAccount(name:string, email: string, phone: string, password: string, e_shop: E_Shop *)&#10;+login(password: string): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="27" vertex="1">
+                    <mxGeometry y="128" width="510" height="162" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="CustomerAccaount" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="570" y="414" width="530" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="-password; string&#10;-name; string&#10;-email; string&#10;-phone; string&#10;-cart: map&lt;Product *, int&gt;&#10;-e_shop: E_Shop *" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="32" vertex="1">
+                    <mxGeometry y="26" width="530" height="94" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="32" vertex="1">
+                    <mxGeometry y="120" width="530" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="-enter_menu()&#10;-change_password()&#10;-view_products()&#10;-view_cart()&#10;-add_to_cart()&#10;-add_to_cart(product: Product *)&#10;-remove_from_cart()&#10;-remove_from_cart(product: Product*)&#10;-buy()&#10;+CustomerAccount() = default;&#10;+CustomerAccount(name:string, email: string, phone: string, password: string, e_shop: E_Shop *);&#10;+login(password: string): bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="32" vertex="1">
+                    <mxGeometry y="128" width="530" height="182" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="Product" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="810" width="520" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="-id_counter: inline static int = 0&#10;-ids: inline static std::stack&lt;int&gt; &#10;-id: int&#10;-name: string&#10;-description :string&#10;-price: float&#10;-quantity: int&#10;-seller: SellerAccount *" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0" parent="36" vertex="1">
+                    <mxGeometry y="26" width="520" height="124" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="36" vertex="1">
+                    <mxGeometry y="150" width="520" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="-Product(name: string, description: string, price: float, quantity: int, id: int, seller:SellerAccount *);&#10;-new_id(): int&#10;+Product() = default;&#10;+print():&#10;+get_quantity(): int &amp;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="36" vertex="1">
+                    <mxGeometry y="158" width="520" height="82" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="27" target="13">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="540" y="390" as="sourcePoint"/>
+                        <mxPoint x="700" y="390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="41" value="" style="endArrow=block;startArrow=block;endFill=1;startFill=1;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="13" target="32">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="540" y="390" as="sourcePoint"/>
+                        <mxPoint x="700" y="390" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="42" value="" style="endArrow=open;endFill=1;endSize=12;html=1;exitX=0.486;exitY=1.029;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="30" target="36">
+                    <mxGeometry width="160" relative="1" as="geometry">
+                        <mxPoint x="530" y="850" as="sourcePoint"/>
+                        <mxPoint x="690" y="850" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
