@@ -74,9 +74,9 @@ void SellerAccount::add_product()
     cout << "Enter quantity: ";
     cin >> quantity;
     int id = Product().new_id();
-    products[id] = Product(name, description, price, quantity, id, this);
-    e_shop->name_products[name] = &products[id];
-    e_shop->id_products[id] = &products[id];
+    products[id] = new Product(name, description, price, quantity, id, this);
+    e_shop->name_products[name] = products[id];
+    e_shop->id_products[id] = products[id];
 }
 
 void SellerAccount::remove_product()
@@ -231,10 +231,10 @@ void SellerAccount::update_product(Product *product)
 
 void SellerAccount::view_your_products()
 {
-    for (auto &product : products)
+    for (auto it = products.begin(); it != products.end(); it++)
     {
-        product.second.print();
-        cout << "Quantity:" << product.second.get_quantity() << endl
+        it->second->print();
+        cout << "Quantity:" << it->second->get_quantity() << endl
              << endl;
     }
 }

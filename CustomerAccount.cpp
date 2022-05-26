@@ -60,10 +60,10 @@ void CustomerAccount::view_products()
 
 void CustomerAccount::view_cart()
 {
-    for (auto &product : cart)
+    for(auto it = cart.begin(); it != cart.end(); it++)
     {
-        product.first->print();
-        cout << "Quantity:" << product.second << endl
+        it->first->print();
+        cout << "Quantity:" << it->second << endl
              << endl;
     }
 }

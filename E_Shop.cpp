@@ -3,8 +3,8 @@ using namespace std;
 
 E_Shop::E_Shop()
 {
-    seller_accounts = map<string, SellerAccount>();
-    customer_accounts = map<string, CustomerAccount>();
+    seller_accounts = map<string, SellerAccount *>();
+    customer_accounts = map<string, CustomerAccount *>();
     name_products = map<string, Product *>();
     id_products = map<int, Product *>();
 }
@@ -63,8 +63,8 @@ void E_Shop::login_seller()
     getline(cin, password);
     if (seller_accounts.find(username) != seller_accounts.end())
     {
-        SellerAccount seller_account = seller_accounts[username];
-        if (seller_account.login(password))
+        SellerAccount *seller_account = seller_accounts[username];
+        if (seller_account->login(password))
         {
         }
         else
@@ -89,8 +89,8 @@ void E_Shop::login_customer()
     getline(cin, password);
     if (customer_accounts.find(username) != customer_accounts.end())
     {
-        CustomerAccount customer_account = customer_accounts[username];
-        if (customer_account.login(password))
+        CustomerAccount *customer_account = customer_accounts[username];
+        if (customer_account->login(password))
         {
         }
         else
@@ -122,7 +122,7 @@ void E_Shop::create_customer_account()
     getline(cin, email);
     cout << "Enter phone: ";
     getline(cin, phone);
-    customer_accounts[username] = CustomerAccount(name, email, phone, password, this);
+    customer_accounts[username] = new CustomerAccount(name, email, phone, password, this);
 }
 
 void E_Shop::create_seller_account()
@@ -143,5 +143,5 @@ void E_Shop::create_seller_account()
     getline(cin, email);
     cout << "Enter phone: ";
     getline(cin, phone);
-    seller_accounts[username] = SellerAccount(name, email, phone, password, this);
+    seller_accounts[username] = new SellerAccount(name, email, phone, password, this);
 }

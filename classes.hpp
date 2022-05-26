@@ -4,7 +4,6 @@
 #include <bits/stdc++.h>
 using std::map;
 using std::string;
-using std::vector;
 
 class E_Shop;
 class Product;
@@ -14,8 +13,8 @@ class SellerAccount;
 class E_Shop
 {
 private:
-    map<string, SellerAccount> seller_accounts;     // Map of seller accounts with their username as key
-    map<string, CustomerAccount> customer_accounts; // Map of customer accounts with their username as key
+    map<string, SellerAccount*> seller_accounts;     // Map of seller accounts with their username as key
+    map<string, CustomerAccount*> customer_accounts; // Map of customer accounts with their username as key
     map<string, Product *> name_products;           // Map of products with their name as key
     map<int, Product *> id_products;                // Map of products with their id as key
     void login_seller();                            // Login seller
@@ -38,7 +37,7 @@ private:
     string name;                           // Name of the seller account
     string email;                          // Email of the seller account
     string phone;                          // Phone number of the seller account
-    map<int, Product> products;            // Map of products with their id as key
+    map<int, Product*> products;            // Map of products with their id as key
     E_Shop *e_shop;                        // Pointer to the e-shop
     void enter_menu();                     // Menu of the seller account
     void change_password();                // Change password of the seller account
